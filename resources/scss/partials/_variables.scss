@@ -1,0 +1,15 @@
+$light_blue: #0282f9;
+$dark_grey: #1c1c1c;
+$dark_blue: rgb(38, 49, 55);
+
+
+
+@mixin small_button {
+    font-family: 'Oswald';
+    font-size: 13px;
+    text-transform: uppercase;
+    color: white;
+    background-color: $light_blue;
+    padding: 5px 50px;
+    border: none;
+}

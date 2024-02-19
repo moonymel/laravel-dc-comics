@@ -13,7 +13,7 @@
                     <div class="image">
                         <img src="{{ $comic['thumb'] }}">
                     </div>
-                    <a href="{{ route('comic', ['param' => $comic['id']]) }}">{{ $comic['title'] }}</a>
+                    <a href="">{{ $comic['title'] }}</a>
                 </div>
                 @endforeach
             </div>

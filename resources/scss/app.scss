@@ -1,1 +1,166 @@
 @import '~bootstrap/scss/bootstrap';
+@import './partials/variables';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(41, 41, 41);
+}
+
+header {
+    font-family: 'Oswald';
+    background-color: white;
+    text-transform: uppercase;
+    color: rgb(41, 41, 41);
+    font-size: 17px;
+
+    img {
+        width: 80px;
+        vertical-align: middle;
+    }
+
+    li {
+        display: inline-block;
+        padding: 0px 15px;
+
+        &.active {
+            color: $light_blue;
+            position: relative;
+        }
+
+        &.active:after {
+            content: '';
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: -43px;
+            border-bottom: 4px solid $light_blue;
+        }
+    }
+}
+
+.my-jumbotron {
+    width: 100%;
+    height: 400px;
+    background-image: url('../img/jumbotron.jpg');
+    object-fit: cover;
+}
+
+main {
+    background-color: $dark_grey;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+
+    .title-one {
+        background-color: $light_blue;
+        font-family: 'Oswald';
+        text-transform: uppercase;
+        font-size: 25px;
+        color: white;
+        max-width: 200px;
+        position: absolute;
+        top: -20px;
+    }
+
+    .my-card {
+        font-size: 14px;
+
+        img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: 50% 0%;
+            margin-bottom: 10px;
+        }
+    }
+
+    .load {
+        text-align: center;
+        padding: 20px 0;
+
+        button {
+            @include small_button
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+.blue-line {
+    background-color: $light_blue;
+
+    .section {
+        text-transform: uppercase;
+        font-size: 14px;
+        margin: 40px 0px;
+
+        img {
+            height: 50px;
+            vertical-align: middle;
+            margin-right: 10px;
+
+            &.visa {
+                height: 35px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+}
+
+.line {
+    background-color: $light_blue;
+    width: 100%;
+    height: 70px;
+
+    img {
+        width: 200px;
+        margin-top: -220px;
+    }
+}
+
+.spec {
+    .title {
+        font-family: 'Oswald';
+        color: $dark_blue;
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: bold;
+    }
+}
+
+.adv {
+    font-family: 'Oswald';
+    color: rgb(117, 117, 117);
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: bold;
+
+    img {
+        width: 100%;
+    }
+}
+
+.green-bar {
+    background-color: rgb(17, 179, 17);
+    color: lightgreen;
+    font-size: 15px;
+
+    .my-border {
+        border: 1px solid rgb(29, 163, 29);
+    }
+
+    .white {
+        color: white;
+    }
+}
