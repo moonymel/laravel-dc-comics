@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
 class ComicController extends Controller
 {
     /**
@@ -37,7 +39,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $form_data = $request->all();
+        $form_data = $this->validation($request->all());
         $comic = new Comic();
         $comic->fill($form_data);
         $comic->save();
@@ -77,7 +79,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $form_data = $request->all();
+        $form_data = $this->validation($request->all());
         $comic = Comic::find($id);
         $comic->update($form_data);
         return redirect()->route('comics.show', ['comic' => $comic]);
@@ -94,5 +96,40 @@ class ComicController extends Controller
         $comic = Comic::find($id);
         $comic->delete();
         return redirect()->route('comics.index'); 
+    }
+
+
+    // per la validazione dei dati
+    private function validation($data){
+        $validator = Validator::make($data,
+        [
+            'title' => 'required|max:100',
+            'description' => 'required',
+            'price' => 'required|max:10',
+            'thumb' => 'required',
+            'series' => 'required|max:100',
+            'sale_date' => 'required',
+            'type' => 'required',
+            'artists' => 'required',
+            'writers' => 'required',
+        ],
+        [
+            'title.required' => 'Il titolo è obbligatorio!',
+            'title.max' => 'Il titolo deve avere massimo 100 caratteri',
+            'description.required' => 'La descrizione è obbligatoria!',
+            'price.required' => 'Il prezzo è obbligatorio!',
+            'price.max' => 'Il prezzo deve avere massimo 10 cifre',
+            'thumb.required' => 'L\'immagine è obbligatoria!',
+            'series.max' => 'La serie deve avere massimo 100 caratteri',
+            'series.required' => 'La serie è obbligatoria!',
+            'sale_date.required' => 'La data di uscita è obbligatoria!',
+            'type.required' => 'Il tipo è obbligatorio!',
+            'artists.required' => 'Gli artisti sono obbligatori!',
+            'writers.required' => 'Gli scrittori sono obbligatori!',
+            
+
+        ])->validate();
+
+        return $validator;
     }
 }
