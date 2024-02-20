@@ -11,8 +11,13 @@
 <div class="container">
     <div class="row d-flex justify-content-between my-4">
         <div class="col-8 spec my-3">
-            <div class="title my-2">
-                {{ $comic->title }}
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="title my-2">
+                    {{ $comic->title }}
+                </div>
+                <div>
+                    <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}"><button class="btn btn-sm btn-primary">Modifica</button></a>
+                </div>
             </div>
             <div class="green-bar d-flex">
                 <div class="col-8 my-border p-2">
