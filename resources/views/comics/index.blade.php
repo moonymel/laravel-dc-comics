@@ -17,9 +17,12 @@
                 </div>
                 @endforeach
             </div>
-            <div class="load">
+            <div class="load d-inline-block mx-3">
             <button>load more</button>
-        </div>
+            </div>
+            <div class="load d-inline-block mx-3">
+                <a href="{{ route('comics.create') }}"><button>add comic</button></a>
+            </div>
         </div>
 
         <div class="blue-line">

@@ -8,7 +8,7 @@
                 <div class="col-10 text-end">
                     <ul class="list-unstyled d-inline-block">
                         <li class="{{ Route::currentRouteName() === 'characters' ? 'active' : '' }}">characters</li>
-                        <li class="{{ Route::currentRouteName() === 'homepage' ? 'active' : '' }}"><a href="{{ route('comics.index') }}">comics</a></li>
+                        <li class="{{ Route::currentRouteName() === 'comics' ? 'active' : '' }}"><a href="{{ route('comics.index') }}">comics</a></li>
                         <li class="{{ Route::currentRouteName() === 'movies' ? 'active' : '' }}">movies</li>
                         <li class="{{ Route::currentRouteName() === 'tv' ? 'active' : '' }}">tv</li>
                         <li class="{{ Route::currentRouteName() === 'games' ? 'active' : '' }}">games</li>
